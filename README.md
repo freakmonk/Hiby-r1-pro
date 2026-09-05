@@ -30,9 +30,9 @@ No compilation is required to use the pre-built firmware and applications.
 
 Copy the following files to the root of a MicroSD card:
 
-1. Rename the firmware file to `r1.upt` and copy it to the card root.
+1. Copy the firmware file to the card root.
 2. Copy the contents of `sd_card/Apps/` to an `Apps/` directory on the card.
-3. Create a `games/` directory in the card root and copy Game Boy ROM files
+3. Create a `games/` directory in the card root and download Game Boy ROM files
     (`.gb` or `.gbc`) into it.
 
 The resulting card structure should look similar to this:
