@@ -2,7 +2,7 @@
 
 `r1.upt` is a modified firmware image for the HiBy R1 digital audio player.
 It is based on the HiBy R1 modification by bidhata and adds a boot menu with
-support for launching applications from a MicroSD card.
+support for launching applications from a MicroSD card. Base fw is <b>v1.8 b2</b>.
 
 The project scans the card for installed programs and presents them in the
 boot menu. Applications can be added or replaced without changing the main
