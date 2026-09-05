@@ -41,19 +41,19 @@ The resulting card structure should look similar to this:
 MicroSD Card/
 ├── r1.upt
 ├── Apps/
-        ├── Audiobook/
-        ├── calc/
-        ├── doom/
-        │   ├── DOOM.WAD
-        │   ├── DOOM2.WAD
-        │   ├── THT.WAD
-        │   └── doom
-        ├── gb-emu/
-        ├── hicmndr/
-        └── mplayer/
+│       ├── Audiobook/
+│       ├── calc/
+│       ├── doom/
+│       │   ├── DOOM.WAD
+│       │   ├── DOOM2.WAD
+│       │   ├── THT.WAD
+│       │   └── doom
+│       ├── gb-emu/
+│       ├── hicmndr/
+│       └── mplayer/
 ├── games/
-    ├── game.gb
-    └── game.gbc
+│       ├── game.gb
+│       └── game.gbc
 └── Audiobooks/
         ├── Author/
             ├── Book/
