@@ -32,8 +32,10 @@ Copy the following files to the root of a MicroSD card:
 
 1. Copy the firmware file `r1.upt` to the card root.
 2. Copy the contents of `sd_card/Apps/` to an `Apps/` directory on the card.
-3. Create a `games/` directory in the card root and download Game Boy ROM files
+3. Download WAD Doom game files to `Apps/doom/` directory.
+4. Create a `games/` directory in the card root and download Game Boy ROM files
     (`.gb` or `.gbc`) into it.
+5. Create a `Audiobooks/` directory in the card root and download here some audiobooks with folder configuration of `Audiobooks/Arthur Conan Doyle/The Lost World/Some_sound_files.mp3`.
 
 The resulting card structure should look similar to this:
 
@@ -57,8 +59,8 @@ MicroSD Card/
 └── Audiobooks/
         ├── Author/
             ├── Book/
-                ├── 001.mp3
-                └── 002.mp3
+                ├── 01.mp3
+                └── 02.mp3
 ```
 
 The GameBoy Emulator scans the `games/` directory for Game Boy and Game Boy
