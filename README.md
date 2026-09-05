@@ -51,14 +51,14 @@ MicroSD Card/
         ├── gb-emu/
         ├── hicmndr/
         └── mplayer/
-└── games/
+├── games/
     ├── game.gb
     └── game.gbc
-├── Audiobooks/
+└── Audiobooks/
         ├── Author/
             ├── Book/
                 ├── 001.mp3
-                ├── 002.mp3
+                └── 002.mp3
 ```
 
 The GameBoy Emulator scans the `games/` directory for Game Boy and Game Boy
