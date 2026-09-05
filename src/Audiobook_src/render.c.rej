@@ -1,0 +1,8 @@
+@@ -133,6 +137,7 @@
+         if (ioctl(fb_fd, FBIOGET_VSCREENINFO, &vinfo) == 0)
+             r->pan_yoffset = vinfo.yoffset;
+     }
++#endif
+ }
+ 
+ void render_clear(renderer_t *r) {

@@ -1,0 +1,114 @@
+# HiBy R1 Pro Firmware Mod and Homebrew Applications
+
+`r1.upt` is a modified firmware image for the HiBy R1 digital audio player.
+It is based on the HiBy R1 modification by bidhata and adds a boot menu with
+support for launching applications from a MicroSD card.
+
+The project scans the card for installed programs and presents them in the
+boot menu. Applications can be added or replaced without changing the main
+firmware. Example test applications and their source code are kept in `src/`.
+
+## Included applications
+
+- **Audiobook** - an audiobook player forked and reworked from
+    [Hiby-R1-Audiobook-Mod](https://github.com/yetisoldier/Hiby-R1-Audiobook-Mod).
+- **Calculator** - a small calculator application.
+- **DOOM** - a port of the game with sound support and a launcher that lets
+    you choose the WAD to play.
+- **GameBoy Emulator** - a modified version based on bidhata's emulator,
+    with sound support.
+- **HiCommander** - a file manager for the player.
+- **MPlayer** - a simple video player with sound support.
+
+The `src/` directory also serves as a starting point for writing and testing
+your own applications for the HiBy R1. Each application has its own source
+directory and build files where applicable.
+
+## Installation
+
+No compilation is required to use the pre-built firmware and applications.
+
+Copy the following files to the root of a MicroSD card:
+
+1. Rename the firmware file to `r1.upt` and copy it to the card root.
+2. Copy the contents of `sd_card/Apps/` to an `Apps/` directory on the card.
+3. Create a `games/` directory in the card root and copy Game Boy ROM files
+    (`.gb` or `.gbc`) into it.
+
+The resulting card structure should look similar to this:
+
+```text
+MicroSD Card/
+├── r1.upt
+├── Apps/
+        ├── Audiobook/
+        ├── calc/
+        ├── doom/
+        │   ├── DOOM.WAD
+        │   ├── DOOM2.WAD
+        │   ├── THT.WAD
+        │   └── doom
+        ├── gb-emu/
+        ├── hicmndr/
+        └── mplayer/
+└── games/
+    ├── game.gb
+    └── game.gbc
+├── Audiobooks/
+        ├── Author/
+            ├── Book/
+                ├── 001.mp3
+                ├── 002.mp3
+```
+
+The GameBoy Emulator scans the `games/` directory for Game Boy and Game Boy
+Color ROMs.
+
+To flash the device:
+
+1. Insert the card into the HiBy R1.
+2. Open **System Settings -> System Update**.
+3. Confirm the update and wait for the player to reboot.
+4. Select an application from the boot menu.
+
+## DOOM controls
+
+```text
++------------------------------------+ (0,0)
+|                                    |
+|          DOOM GAME VIEW            |
+|       (320x200 scaled 1.5x)        |
+|             480x300                |
+|                                    |
++------------------------------------+ (0,350)
+|  [ESC]    [TAB]    [ENTER]   [YES] |  (Menu / Map / Confirm)
++------------------------------------+ (0,430)
+|   [UP]   |   [WEAPON]  [USE]       |  (D-Pad Up / Switch Weapon / Use)
+| [L]  [R] |   [ FIRE ]  [RUN]       |  (D-Pad Left/Right / Fire / Run)
+|  [DOWN]  |                         |  (D-Pad Down)
++------------------------------------+ (480,800)
+```
+
+- **Volume +** (`KEY_VOLUMEUP`): Fire / Attack (`Ctrl`)
+- **Volume -** (`KEY_VOLUMEDOWN`): Use / Open Door (`Space`)
+- **Power** (`KEY_POWER`): Exit / Menu (`ESC`)
+
+## Credits and licenses
+
+- The firmware image and boot-menu integration are modifications based on the
+    work by **bidhata**. Refer to the original project for its license and
+    attribution requirements.
+- The Audiobook application is derived from
+    [Hiby-R1-Audiobook-Mod](https://github.com/yetisoldier/Hiby-R1-Audiobook-Mod);
+    its original license and notices apply to the derived portions.
+- The DOOM engine is based on the GPL-licensed DOOM source code and fbdoom
+    work. DOOM WAD files are separate game data and are not covered by the GPL;
+    use only WAD files that you are legally entitled to use.
+- The Game Boy emulator, Calculator, HiCommander, MPlayer, and project glue
+    code are provided under the GNU General Public License v2.0 unless a source
+    file or upstream project states otherwise.
+- Third-party libraries, fonts, build tools, and firmware components retain
+    their own licenses and copyright notices.
+
+This repository does not grant rights to redistribute HiBy firmware or game
+data. Review the applicable upstream licenses before redistributing builds.

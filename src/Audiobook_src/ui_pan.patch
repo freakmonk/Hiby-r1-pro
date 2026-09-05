@@ -1,0 +1,22 @@
+--- ui.c
++++ ui.c
+@@ -1175,6 +1175,13 @@
+         now = now_ms();
+         volume_hold_tick(ui, now);
++#ifdef STANDALONE
++        if ((now - last_pan) >= PAN_INTERVAL_MS) {
++            last_pan = now;
++            ui_draw_frame(fb); /* fb is backbuffer passed from main */
++            platform_flip(fb_fd, fb); /* we'll implement this */
++        }
++#else
+         if (can_pan && (now - last_pan) >= PAN_INTERVAL_MS) {
+             last_pan = now;
+             vinfo.yoffset = (vinfo.yoffset == 0) ? vinfo.yres : 0;
+@@ -1199,6 +1206,7 @@
+                 set_blanked(ui, 1, fb_fd);
+             }
+         }
++#endif
+ 
+         /* Pre-warm ONE list thumbnail per tick. draw_list (run inside the pan

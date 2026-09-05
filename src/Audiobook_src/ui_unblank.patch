@@ -1,0 +1,14 @@
+--- ui.c
++++ ui.c
+@@ -594,8 +594,12 @@
+ static int framebuffer_unblank(int fb_fd) {
+     int rc = -1;
+     if (fb_fd >= 0)
++#ifdef STANDALONE
++        rc = ioctl(fb_fd, FBIOBLANK, (void *)(intptr_t)FB_BLANK_UNBLANK);
++#else
+         rc = (int)syscall(SYS_ioctl, fb_fd, FBIOBLANK,
+                           (void *)(intptr_t)FB_BLANK_UNBLANK);
++#endif
+     return rc;
+ }

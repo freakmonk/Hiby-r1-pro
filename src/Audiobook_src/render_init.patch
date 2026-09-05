@@ -1,0 +1,21 @@
+--- render.c
++++ render.c
+@@ -137,6 +137,10 @@
+ void renderer_init(renderer_t *r, uint16_t *fb, int fb_fd) {
+     r->fb = fb;
+     r->fb_fd = fb_fd;
++#ifdef STANDALONE
++    r->pan_yoffset = 0;
++    r->needs_redraw = 1;
++#else
+     r->pan_yoffset = 0;
+     r->needs_redraw = 1;
+     /* Initialize the initial pan offset by reading current state. We don't
+@@ -147,6 +151,7 @@
+         if (ioctl(fb_fd, FBIOGET_VSCREENINFO, &vinfo) == 0)
+             r->pan_yoffset = vinfo.yoffset;
+     }
++#endif
+ }
+ 
+ void render_clear(renderer_t *r) {
