@@ -1,0 +1,15 @@
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc-mipsel-linux-gnu \
+    g++-mipsel-linux-gnu \
+    binutils-mipsel-linux-gnu \
+    make \
+    file \
+    squashfs-tools \
+    genisoimage \
+    p7zip-full \
+    bsdmainutils \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
