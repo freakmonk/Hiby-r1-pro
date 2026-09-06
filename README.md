@@ -55,13 +55,13 @@ MicroSD Card/
 │       │   ├── THT.WAD
 │       │   └── doom
 │       ├── gb-emu/
-│           └── games/
-│               ├── game.gb
-│               └── game.gbc
+│       │   └── games/
+│       │       ├── game.gb
+│       │       └── game.gbc
 │       ├── hicmndr/
 │       └── mplayer/
 │       └── open-player/
-
+│
 └── Audiobooks/
         └── Author/
             └── Book/
