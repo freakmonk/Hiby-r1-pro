@@ -23,6 +23,8 @@ killall    hiby_player >/dev/null 2>&1
 killall -9 hiby_player >/dev/null 2>&1
 killall    bidhata-menu >/dev/null 2>&1
 killall -9 bidhata-menu >/dev/null 2>&1
+killall    bidhata-launcher.sh >/dev/null 2>&1
+killall -9 bidhata-launcher.sh >/dev/null 2>&1
 
 # Mount SD card if unmounted (though bidhata-launcher should have done this)
 if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
@@ -34,38 +36,8 @@ if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
     done
 fi
 
-# mkdir -p "$DOOM_DIR" 2>/dev/null
-
-# # Rotate old log so each session is fresh
-# > "$LOG_FILE"
-# log "=== Doom session started ==="
-
-# # Look for WAD file (case insensitive search)
-# WAD_FILE=""
-# for w in "$DOOM_DIR/doom2.wad" "$DOOM_DIR/DOOM2.WAD" \
-#          "$DOOM_DIR/plutonia.wad" "$DOOM_DIR/PLUTONIA.WAD" \
-#          "$DOOM_DIR/tnt.wad" "$DOOM_DIR/TNT.WAD" \
-#          "$DOOM_DIR/doom.wad" "$DOOM_DIR/DOOM.WAD" \
-#          "$DOOM_DIR/doom1.wad" "$DOOM_DIR/DOOM1.WAD"; do
-#     if [ -f "$w" ]; then
-#         WAD_FILE="$w"
-#         break
-#     fi
-# done
-
-# if [ -z "$WAD_FILE" ]; then
-#     log "ERROR: No WAD file found in $DOOM_DIR"
-#     echo "Copy DOOM2.WAD or DOOM.WAD to folder Apps/doom/" > /dev/console
-#     sleep 5
-#     exit 1
-# fi
-
-# log "Found WAD: $WAD_FILE"
-
 # Determine path to doom executable (MicroSD binary > /usr/data/doom > /usr/bin/doom)
-DOOM_BIN=/usr/bin/doom
-[ -x /usr/data/doom ]    && DOOM_BIN=/usr/data/doom
-[ -f "$DOOM_DIR/doom" ]  && DOOM_BIN="$DOOM_DIR/doom"
+DOOM_BIN="$DOOM_DIR/doom"
 
 # Try to force executable bit just in case
 chmod +x "$DOOM_BIN" 2>/dev/null
@@ -77,5 +49,5 @@ cd "$DOOM_DIR"
 "$DOOM_BIN" >> "$LOG_FILE" 2>&1
 
 log "Doom exited."
-sleep 1
-reboot
+
+bidhata-launcher.sh

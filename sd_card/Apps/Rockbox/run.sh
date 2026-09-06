@@ -11,6 +11,8 @@ killall    hiby_player >/dev/null 2>&1
 killall -9 hiby_player >/dev/null 2>&1
 killall    bidhata-menu >/dev/null 2>&1
 killall -9 bidhata-menu >/dev/null 2>&1
+killall    bidhata-launcher.sh >/dev/null 2>&1
+killall -9 bidhata-launcher.sh >/dev/null 2>&1
 
 # Mount SD card if unmounted (though bidhata-launcher should have done this)
 if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
@@ -23,12 +25,12 @@ if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
 fi
 
 # Try to force executable bit just in case
-chmod +x "$SD_MOUNT/.Rockbox/rockbox.r1" 2>/dev/null
+chmod +x "$SD_MOUNT/.rockbox/rockbox" 2>/dev/null
 cd "$SD_MOUNT"
 
 # Run  – all stdout/stderr (including [doom-input] lines) goes to SD card log
-"$SD_MOUNT/.Rockbox/rockbox.r1"
+"$SD_MOUNT/.rockbox/rockbox"
 
-log "Rockbox exited."
-sleep 1
-reboot
+log "rockbox exited."
+
+bidhata-launcher.sh

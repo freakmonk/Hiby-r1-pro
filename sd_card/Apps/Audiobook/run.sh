@@ -11,6 +11,8 @@ killall    hiby_player >/dev/null 2>&1
 killall -9 hiby_player >/dev/null 2>&1
 killall    bidhata-menu >/dev/null 2>&1
 killall -9 bidhata-menu >/dev/null 2>&1
+killall    bidhata-launcher.sh >/dev/null 2>&1
+killall -9 bidhata-launcher.sh >/dev/null 2>&1
 
 # Mount SD card if unmounted (though bidhata-launcher should have done this)
 if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
@@ -30,5 +32,5 @@ cd "$HOME_DIR"
 "$HOME_DIR/Audiobook"
 
 log "Audiobook exited."
-sleep 1
-reboot
+
+bidhata-launcher.sh

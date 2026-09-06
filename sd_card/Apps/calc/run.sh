@@ -1,5 +1,5 @@
 #!/bin/sh
-# GameBoy Emulator Launcher for Bidhata Menu
+# calc for Bidhata Menu
 
 killall    hiby_player >/dev/null 2>&1
 killall -9 hiby_player >/dev/null 2>&1
@@ -15,17 +15,17 @@ log() {
     echo "gb-launcher: $*" > /dev/console 2>/dev/null
 }
 
-log "Starting GameBoy emulator"
+log "Starting calc"
 
-chmod +x gb-emu 2>/dev/null
+chmod +x calc 2>/dev/null
 
-if [ -x "./gb-emu" ]; then
-    ./gb-emu
+if [ -x "./calc" ]; then
+    ./calc
 fi
 
-log "gb-emu exited, returning to menu"
+log "calc exited, returning to menu"
 
-killall    gb-emu >/dev/null 2>&1
-killall -9 gb-emu >/dev/null 2>&1
+killall    calc >/dev/null 2>&1
+killall -9 calc >/dev/null 2>&1
 
 bidhata-launcher.sh
