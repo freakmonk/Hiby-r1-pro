@@ -20,7 +20,7 @@ firmware. Example test applications and their source code are kept in `src/`.
 - **HiCommander** - a file manager for the player.
 - **MPlayer** - a simple video player with sound support.
 - **Open Hiby Player** - open source player from [Starnished66](https://github.com/Starnished66/R1-open-source-player/). 
-- **Rockbox run script** - Download and install on sd card [RockBox mod from bahusoid](https://github.com/bahusoid/rockbox/releases/tag/x1600_hiby_v1). Its might be `.rockbox` directory on the root of sd card.
+- **Rockbox run script** - download and install on sd card [RockBox mod from bahusoid](https://github.com/bahusoid/rockbox/releases/tag/x1600_hiby_v1). Its might be `.rockbox` directory on the root of sd card.
 
 The `src/` directory also serves as a starting point for writing and testing
 your own applications for the HiBy R1. Each application has its own source
@@ -44,8 +44,10 @@ The resulting card structure should look similar to this:
 ```text
 MicroSD Card/
 ├── r1.upt
+├── .rockbox/
 ├── Apps/
 │       ├── Audiobook/
+│       ├── Rockbox/
 │       ├── calc/
 │       ├── doom/
 │       │   ├── DOOM.WAD
@@ -55,6 +57,7 @@ MicroSD Card/
 │       ├── gb-emu/
 │       ├── hicmndr/
 │       └── mplayer/
+│       └── open-player/
 ├── games/
 │       ├── game.gb
 │       └── game.gbc
