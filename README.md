@@ -19,6 +19,7 @@ firmware. Example test applications and their source code are kept in `src/`.
     with sound support.
 - **HiCommander** - a file manager for the player.
 - **MPlayer** - a simple video player with sound support.
+- **Open Hiby Player** - open source player from [Starnished66](https://github.com/Starnished66/R1-open-source-player/). 
 
 The `src/` directory also serves as a starting point for writing and testing
 your own applications for the HiBy R1. Each application has its own source
