@@ -35,7 +35,7 @@ Copy the following files to the root of a MicroSD card:
 1. Copy the firmware file `r1.upt` to the card root.
 2. Copy the contents of `sd_card/Apps/` to an `Apps/` directory on the card.
 3. Download WAD Doom game files to `Apps/doom/` directory.
-4. Create a `games/` directory in the card root and download Game Boy ROM files
+4. Create a `Apps/gb-emu/games/` directory in the card root and download Game Boy ROM files
     (`.gb` or `.gbc`) into it.
 5. Create a `Audiobooks/` directory in the card root and download here some audiobooks with folder configuration of `Audiobooks/Arthur Conan Doyle/The Lost World/Some_sound_files.mp3`.
 
@@ -55,21 +55,19 @@ MicroSD Card/
 │       │   ├── THT.WAD
 │       │   └── doom
 │       ├── gb-emu/
+│           └── games/
+│               ├── game.gb
+│               └── game.gbc
 │       ├── hicmndr/
 │       └── mplayer/
 │       └── open-player/
-├── games/
-│       ├── game.gb
-│       └── game.gbc
+
 └── Audiobooks/
         └── Author/
             └── Book/
                 ├── 01.mp3
                 └── 02.mp3
 ```
-
-The GameBoy Emulator scans the `games/` directory for Game Boy and Game Boy
-Color ROMs.
 
 To flash the device:
 

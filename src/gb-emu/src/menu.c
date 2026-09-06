@@ -93,38 +93,67 @@ static int compare_roms(const void *a, const void *b) {
     return strcasecmp(ra->name, rb->name);
 }
 
+#include <unistd.h>
+
 int gb_menu_scan_roms(gb_menu_rom_t *roms, int max_roms) {
     int count = 0;
-
-    for (int m = 0; sd_mounts[m] && count < max_roms; m++) {
-        char games[GB_MENU_PATH_MAX];
-        snprintf(games, sizeof(games), "%s/games", sd_mounts[m]);
-
-        DIR *dir = opendir(games);
-        if (!dir) continue;
-
-        struct dirent *ent;
-        while ((ent = readdir(dir)) != NULL && count < max_roms) {
-            if (ent->d_name[0] == '.') continue;
-            if (!has_rom_ext(ent->d_name)) continue;
-
-            char path[GB_MENU_PATH_MAX];
-            if (snprintf(path, sizeof(path), "%s/%s", games, ent->d_name)
-                    >= (int)sizeof(path)) {
-                continue; /* Path too long to store; skip it. */
-            }
-
-            struct stat st;
-            if (stat(path, &st) != 0 || !S_ISREG(st.st_mode)) continue;
-
-            snprintf(roms[count].path, sizeof(roms[count].path), "%s", path);
-            pretty_name(ent->d_name, roms[count].name, sizeof(roms[count].name));
-            count++;
-        }
-        closedir(dir);
+    
+    char exe_path[GB_MENU_PATH_MAX];
+    ssize_t link_len = readlink("/proc/self/exe", exe_path, sizeof(exe_path) - 1);
+    if (link_len > 0) {
+        exe_path[link_len] = '\0';
+        char *slash = strrchr(exe_path, '/');
+        if (slash) *slash = '\0';
+    } else {
+        snprintf(exe_path, sizeof(exe_path), ".");
     }
 
-    qsort(roms, (size_t)count, sizeof(roms[0]), compare_roms);
+    char games_path[GB_MENU_PATH_MAX];
+    snprintf(games_path, sizeof(games_path), "%s/games", exe_path);
+
+    printf("DEBUG: Scanning for games in: '%s'\n", games_path);
+
+    DIR *dir = opendir(games_path);
+    if (!dir) {
+        printf("DEBUG: opendir('%s') failed!\n", games_path);
+        return 0;
+    }
+    
+    printf("DEBUG: Successfully opened dir: '%s', starting scan...\n", games_path);
+
+    struct dirent *ent;
+    while ((ent = readdir(dir)) != NULL && count < max_roms) {
+        if (ent->d_name[0] == '.') continue;
+        if (!has_rom_ext(ent->d_name)) continue;
+
+        char path[GB_MENU_PATH_MAX];
+        if (snprintf(path, sizeof(path), "%s/%s", games_path, ent->d_name)
+                >= (int)sizeof(path)) {
+            continue;
+        }
+
+        struct stat st;
+        if (stat(path, &st) != 0) {
+            printf("DEBUG: stat failed for '%s'\n", path);
+            continue;
+        }
+        if (!S_ISREG(st.st_mode)) {
+            printf("DEBUG: '%s' is not a regular file\n", path);
+            continue;
+        }
+        
+        printf("DEBUG: Found valid ROM: '%s'\n", path);
+
+        snprintf(roms[count].path, sizeof(roms[count].path), "%s", path);
+        pretty_name(ent->d_name, roms[count].name, sizeof(roms[count].name));
+        count++;
+    }
+    closedir(dir);
+
+    if (count > 0) {
+        qsort(roms, count, sizeof(gb_menu_rom_t), compare_roms);
+    }
+
     return count;
 }
 
@@ -223,19 +252,12 @@ static void draw_menu(gb_platform_t *platform, const gb_menu_rom_t *roms,
     int footer_y = platform->fb_height - 70;
     if (rom_count == 0) {
         gb_font_draw(platform, MARGIN, footer_y - 30,
-                     "NO ROMS IN SD games/", COL_ACCENT, 2);
+                     "NO ROMS FOUND", COL_ACCENT, 2);
     }
     gb_font_draw(platform, MARGIN, footer_y,
                  "VOL +/- MOVE   NEXT PICKS", COL_DIM, 2);
 
-    /* Idle countdown to the auto-boot -- always visible so the timeout is
-     * never a surprise, and cancels the instant any key or tap arrives. */
-    int secs_left = (IDLE_TIMEOUT_MS - idle_ms + 999) / 1000;
-    if (secs_left > 0) {
-        char msg[48];
-        snprintf(msg, sizeof(msg), "STARTING PLAYER IN %ds...", secs_left);
-        gb_font_draw(platform, MARGIN, footer_y + 25, msg, COL_ACCENT, 2);
-    }
+    /* Idle timeout has been disabled */
 
     /* Scroll position, when the list is longer than the screen. */
     if (total > visible_rows) {
