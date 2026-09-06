@@ -57,8 +57,8 @@ MicroSD Card/
 │       ├── game.gb
 │       └── game.gbc
 └── Audiobooks/
-        ├── Author/
-            ├── Book/
+        └── Author/
+            └── Book/
                 ├── 01.mp3
                 └── 02.mp3
 ```
