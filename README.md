@@ -15,7 +15,11 @@ firmware. Example test applications and their source code are kept in `src/`.
 - **Calculator** - a small calculator application.
 - **DOOM** - a port of the game with sound support and a launcher that lets
     you choose the WAD to play.
+- **Raw** - a port of the `Another World` 1991 game with sound support, based on [Another World Bytecode Interpreter](https://github.com/fabiensanglard/Another-World-Bytecode-Interpreter) by fabiensanglard.
+    you choose the WAD to play.
 - **GameBoy Emulator** - a modified version based on bidhata's emulator,
+    with sound support.
+- **InfoNES Emulator** - a ported version of NES/Famicom/Dendy emulator based on [InfoNES](https://github.com/jay-kumogata/InfoNES) by jay-kumogata,
     with sound support.
 - **HiCommander** - a file manager for the player.
 - **MPlayer** - a simple video player with sound support.
@@ -58,6 +62,10 @@ MicroSD Card/
 │       │   └── games/
 │       │       ├── game.gb
 │       │       └── game.gbc
+│       ├── InfoNES/
+│       │   └── games/
+│       │       ├── game1.nes
+│       │       └── game2.nes
 │       ├── hicmndr/
 │       └── mplayer/
 │       └── open-player/
