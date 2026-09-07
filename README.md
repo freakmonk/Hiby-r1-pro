@@ -1,7 +1,7 @@
 # HiBy R1 Pro Firmware Mod and Homebrew Applications
 
 `r1.upt` is a modified firmware image for the HiBy R1 digital audio player.
-It is based on the [HiBy R1 modification by bidhata](https://github.com/bidhata/Hiby-R1-Mod) and adds a boot menu with
+It is based on the [HiBy R1 mod](https://github.com/bidhata/Hiby-R1-Mod) by bidhata and adds a boot menu with
 support for launching applications from a MicroSD card. Base fw is <b>v1.8 b2</b>.
 
 The project scans the card for installed programs and presents them in the
