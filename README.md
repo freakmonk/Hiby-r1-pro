@@ -20,10 +20,10 @@ firmware. Example test applications and their source code are kept in `src/`.
     with sound support.
 - **InfoNES Emulator** - a ported version of NES/Famicom/Dendy emulator based on [InfoNES](https://github.com/jay-kumogata/InfoNES) by jay-kumogata,
     with sound support.
-- **HiCommander** - a file manager for the player.
-- **MPlayer** - a simple video player with sound support.
-- **Open Hiby Player** - open source player from [Starnished66](https://github.com/Starnished66/R1-open-source-player/). 
-- **Rockbox run script** - download and install on sd card [RockBox mod from bahusoid](https://github.com/bahusoid/rockbox/releases/tag/x1600_hiby_v1). Its might be `.rockbox` directory on the root of sd card.
+- **HiCommander** - a file manager for the player. Use Vol+, Vol- for scroll lists. 
+- **MPlayer** - a simple video player with sound support, just for fun.
+- **Open Hiby Player** - open source player from [R1 open source player](https://github.com/Starnished66/R1-open-source-player/) by Starnished66. 
+- **Rockbox run script** - download and install on sd card [RockBox mod](https://github.com/bahusoid/rockbox/releases/tag/x1600_hiby_v1) by bahusoid. Its might be `.rockbox` directory on the root of sd card.
 
 The `src/` directory also serves as a starting point for writing and testing
 your own applications for the HiBy R1. Each application has its own source
