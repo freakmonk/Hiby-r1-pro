@@ -17,15 +17,15 @@ log() {
 
 log "Starting ..."
 
-chmod +x open_player 2>/dev/null
+chmod +x open_hiby_player 2>/dev/null
 
-if [ -x "./open_player" ]; then
-    ./open_player
+if [ -x "./open_hiby_player" ]; then
+    ./open_hiby_player
 fi
 
-log "open_player exited, returning to menu"
+log "open_hiby_player exited, returning to menu"
 
-killall    open_player >/dev/null 2>&1
-killall -9 open_player >/dev/null 2>&1
+killall    open_hiby_player >/dev/null 2>&1
+killall -9 open_hiby_player >/dev/null 2>&1
 
 reboot
