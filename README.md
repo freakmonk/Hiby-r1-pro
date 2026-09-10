@@ -9,7 +9,7 @@ boot menu. Applications can be added or replaced without changing the main
 firmware. Example test applications and their source code are kept in `src/`.
 
 ## Included applications
-
+- **Tube** - a simple YouTube player. Reguired proxy server. All details [Apps/Tube/README.md](Apps/Tube/README.md).
 - **Audiobook** - an audiobook player forked and reworked for stanalone runing from
     [Hiby-R1-Audiobook-Mod](https://github.com/yetisoldier/Hiby-R1-Audiobook-Mod) by yetisoldier.
 - **Calculator** - a small calculator application.
