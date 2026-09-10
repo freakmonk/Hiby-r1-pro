@@ -1,0 +1,518 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+rm -f src/InfoNES.o src/InfoNES_Mapper.o src/InfoNES_pAPU.o src/K6502.o src/hiby/InfoNES_System_Hiby.o src/hiby/font.o src/hiby/platform.o infones
+mips-linux-gnu-g++ -O2 -fno-strict-aliasing -fno-lto -Wall -Wextra -Isrc -Isrc/hiby -std=c++11 -D_GNU_SOURCE -EL -march=mips32r2 -mtune=mips32r2 -c -o src/InfoNES.o src/InfoNES.cpp
+src/InfoNES.cpp: In function 'int InfoNES_Reset()':
+src/InfoNES.cpp:439:66: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     InfoNES_MessageBox( "Mapper #%d is unsupported.\n", MapperNo );
+                                                                  ^
+src/InfoNES.cpp: In function 'void InfoNES_Cycle()':
+src/InfoNES.cpp:635:32: warning: array subscript is above array bounds [-Warray-bounds]
+       APU_Reg[ 0x4015 ] |= 0x40;
+                                ^
+src/InfoNES.cpp:635:32: warning: array subscript is above array bounds [-Warray-bounds]
+In file included from src/InfoNES.cpp:42:0:
+src/K6502.h: At global scope:
+src/K6502.h:60:20: warning: 'BYTE K6502_Read(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_Read( WORD wAddr);
+                    ^
+src/K6502.h:61:20: warning: 'WORD K6502_ReadW(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadW( WORD wAddr );
+                    ^
+src/K6502.h:62:20: warning: 'WORD K6502_ReadW2(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadW2( WORD wAddr );
+                    ^
+src/K6502.h:63:20: warning: 'BYTE K6502_ReadZp(BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadZp( BYTE byAddr );
+                    ^
+src/K6502.h:64:20: warning: 'WORD K6502_ReadZpW(BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadZpW( BYTE byAddr );
+                    ^
+src/K6502.h:65:20: warning: 'BYTE K6502_ReadAbsX()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsX();
+                    ^
+src/K6502.h:66:20: warning: 'BYTE K6502_ReadAbsY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsY();
+                    ^
+src/K6502.h:67:20: warning: 'BYTE K6502_ReadIY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadIY();
+                    ^
+src/K6502.h:69:20: warning: 'void K6502_Write(WORD, BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline void K6502_Write( WORD wAddr, BYTE byData );
+                    ^
+src/K6502.h:70:20: warning: 'void K6502_WriteW(WORD, WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline void K6502_WriteW( WORD wAddr, WORD wData );
+                    ^
+mips-linux-gnu-g++ -O2 -fno-strict-aliasing -fno-lto -Wall -Wextra -Isrc -Isrc/hiby -std=c++11 -D_GNU_SOURCE -EL -march=mips32r2 -mtune=mips32r2 -c -o src/InfoNES_Mapper.o src/InfoNES_Mapper.cpp
+In file included from src/InfoNES_Mapper.cpp:176:0:
+src/mapper/InfoNES_Mapper_000.cpp:78:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map0_Write( WORD wAddr, BYTE byData )
+                       ^
+src/mapper/InfoNES_Mapper_000.cpp:78:35: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map0_Write( WORD wAddr, BYTE byData )
+                                   ^
+src/mapper/InfoNES_Mapper_000.cpp:89:22: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map0_Sram( WORD wAddr, BYTE byData )
+                      ^
+src/mapper/InfoNES_Mapper_000.cpp:89:34: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map0_Sram( WORD wAddr, BYTE byData )
+                                  ^
+src/mapper/InfoNES_Mapper_000.cpp:100:21: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map0_Apu( WORD wAddr, BYTE byData )
+                     ^
+src/mapper/InfoNES_Mapper_000.cpp:100:33: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map0_Apu( WORD wAddr, BYTE byData )
+                                 ^
+src/mapper/InfoNES_Mapper_000.cpp:155:21: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map0_PPU( WORD wAddr )
+                     ^
+src/mapper/InfoNES_Mapper_000.cpp:166:30: warning: unused parameter 'byMode' [-Wunused-parameter]
+ void Map0_RenderScreen( BYTE byMode )
+                              ^
+In file included from src/InfoNES_Mapper.cpp:178:0:
+src/mapper/InfoNES_Mapper_002.cpp:55:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map2_Write( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:179:0:
+src/mapper/InfoNES_Mapper_003.cpp:76:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map3_Write( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:182:0:
+src/mapper/InfoNES_Mapper_006.cpp:120:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map6_Write( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:183:0:
+src/mapper/InfoNES_Mapper_007.cpp:55:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map7_Write( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:184:0:
+src/mapper/InfoNES_Mapper_008.cpp:65:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map8_Write( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:187:0:
+src/mapper/InfoNES_Mapper_011.cpp:68:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map11_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:188:0:
+src/mapper/InfoNES_Mapper_013.cpp:66:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map13_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:192:0:
+src/mapper/InfoNES_Mapper_018.cpp: In function 'void Map18_Init()':
+src/mapper/InfoNES_Mapper_018.cpp:54:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for ( int i = 0; i < sizeof( Map18_Regs ); i++ )
+                      ^
+In file included from src/InfoNES_Mapper.cpp:202:0:
+src/mapper/InfoNES_Mapper_034.cpp: At global scope:
+src/mapper/InfoNES_Mapper_034.cpp:63:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map34_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:204:0:
+src/mapper/InfoNES_Mapper_041.cpp:65:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map41_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:209:0:
+src/mapper/InfoNES_Mapper_046.cpp:58:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map46_Sram( WORD wAddr, BYTE byData )
+                       ^
+src/mapper/InfoNES_Mapper_046.cpp:69:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map46_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:212:0:
+src/mapper/InfoNES_Mapper_049.cpp:86:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map49_Sram( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:218:0:
+src/mapper/InfoNES_Mapper_061.cpp:55:36: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map61_Write( WORD wAddr, BYTE byData )
+                                    ^
+In file included from src/InfoNES_Mapper.cpp:222:0:
+src/mapper/InfoNES_Mapper_066.cpp:65:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map66_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:226:0:
+src/mapper/InfoNES_Mapper_070.cpp:55:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map70_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:228:0:
+src/mapper/InfoNES_Mapper_072.cpp:63:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map72_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:233:0:
+src/mapper/InfoNES_Mapper_077.cpp:58:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map77_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:235:0:
+src/mapper/InfoNES_Mapper_079.cpp:63:22: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map79_Apu( WORD wAddr, BYTE byData )
+                      ^
+In file included from src/InfoNES_Mapper.cpp:240:0:
+src/mapper/InfoNES_Mapper_086.cpp: In function 'void Map86_Sram(WORD, BYTE)':
+src/mapper/InfoNES_Mapper_086.cpp:71:26: warning: suggest parentheses around arithmetic in operand of '|' [-Wparentheses]
+       byChrBank = byData & 0x03 | ( byData & 0x40 ) >> 4;
+                          ^
+In file included from src/InfoNES_Mapper.cpp:250:0:
+src/mapper/InfoNES_Mapper_096.cpp: At global scope:
+src/mapper/InfoNES_Mapper_096.cpp:64:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map96_Write( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:254:0:
+src/mapper/InfoNES_Mapper_101.cpp:63:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map101_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:256:0:
+src/mapper/InfoNES_Mapper_107.cpp:62:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map107_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:257:0:
+src/mapper/InfoNES_Mapper_108.cpp:55:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map108_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:272:0:
+src/mapper/InfoNES_Mapper_140.cpp:70:23: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map140_Apu( WORD wAddr, BYTE byData )
+                       ^
+In file included from src/InfoNES_Mapper.cpp:275:0:
+src/mapper/InfoNES_Mapper_180.cpp:63:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map180_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:279:0:
+src/mapper/InfoNES_Mapper_185.cpp:63:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map185_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:280:0:
+src/mapper/InfoNES_Mapper_187.cpp:230:27: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ BYTE Map187_ReadApu( WORD wAddr )
+                           ^
+In file included from src/InfoNES_Mapper.cpp:281:0:
+src/mapper/InfoNES_Mapper_188.cpp:68:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map188_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:285:0:
+src/mapper/InfoNES_Mapper_194.cpp:55:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map194_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:286:0:
+src/mapper/InfoNES_Mapper_200.cpp:62:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map200_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:287:0:
+src/mapper/InfoNES_Mapper_201.cpp:62:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map201_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:288:0:
+src/mapper/InfoNES_Mapper_202.cpp:78:40: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map202_WriteSub( WORD wAddr, BYTE byData )
+                                        ^
+In file included from src/InfoNES_Mapper.cpp:290:0:
+src/mapper/InfoNES_Mapper_225.cpp:62:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map225_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:292:0:
+src/mapper/InfoNES_Mapper_227.cpp:55:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map227_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:294:0:
+src/mapper/InfoNES_Mapper_229.cpp:62:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map229_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:295:0:
+src/mapper/InfoNES_Mapper_230.cpp:71:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map230_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:296:0:
+src/mapper/InfoNES_Mapper_231.cpp:62:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map231_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:298:0:
+src/mapper/InfoNES_Mapper_233.cpp:55:25: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map233_Write( WORD wAddr, BYTE byData )
+                         ^
+In file included from src/InfoNES_Mapper.cpp:300:0:
+src/mapper/InfoNES_Mapper_235.cpp:60:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map235_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:301:0:
+src/mapper/InfoNES_Mapper_236.cpp:60:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map236_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:304:0:
+src/mapper/InfoNES_Mapper_242.cpp:55:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map242_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:306:0:
+src/mapper/InfoNES_Mapper_244.cpp:55:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map244_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:309:0:
+src/mapper/InfoNES_Mapper_248.cpp:156:24: warning: unused parameter 'wAddr' [-Wunused-parameter]
+ void Map248_Sram( WORD wAddr, BYTE byData )
+                        ^
+In file included from src/InfoNES_Mapper.cpp:313:0:
+src/mapper/InfoNES_Mapper_255.cpp:72:37: warning: unused parameter 'byData' [-Wunused-parameter]
+ void Map255_Write( WORD wAddr, BYTE byData )
+                                     ^
+In file included from src/InfoNES_Mapper.cpp:208:0:
+src/mapper/InfoNES_Mapper_045.cpp: In function 'void Map45_Set_PPU_Banks()':
+src/mapper/InfoNES_Mapper_045.cpp:317:44: warning: iteration 4u invokes undefined behavior [-Waggressive-loop-optimizations]
+   Map45_C[i] &= table[Map45_Regs[2] & 0x0F];
+                                            ^
+src/mapper/InfoNES_Mapper_045.cpp:315:20: note: containing loop
+  for(BYTE i = 0; i < 8; i++)
+                    ^
+In file included from src/InfoNES_Mapper.cpp:193:0:
+src/mapper/InfoNES_Mapper_019.cpp: In function 'void Map19_Init()':
+src/mapper/InfoNES_Mapper_019.cpp:72:17: warning: array subscript is above array bounds [-Warray-bounds]
+   Map19_Regs[ 2 ] = 0x00;
+                 ^
+In file included from src/InfoNES_Mapper.cpp:208:0:
+src/mapper/InfoNES_Mapper_045.cpp: In function 'void Map45_Init()':
+src/mapper/InfoNES_Mapper_045.cpp:67:29: warning: array subscript is above array bounds [-Warray-bounds]
+   Map45_Chr4 = 4;  Map45_C[4] = Map45_Chr4;
+                             ^
+src/mapper/InfoNES_Mapper_045.cpp:68:29: warning: array subscript is above array bounds [-Warray-bounds]
+   Map45_Chr5 = 5;  Map45_C[5] = Map45_Chr5;
+                             ^
+src/mapper/InfoNES_Mapper_045.cpp:69:29: warning: array subscript is above array bounds [-Warray-bounds]
+   Map45_Chr6 = 6;  Map45_C[6] = Map45_Chr6;
+                             ^
+src/mapper/InfoNES_Mapper_045.cpp:70:29: warning: array subscript is above array bounds [-Warray-bounds]
+   Map45_Chr7 = 7;  Map45_C[7] = Map45_Chr7;
+                             ^
+src/mapper/InfoNES_Mapper_045.cpp: In function 'void Map45_Set_PPU_Banks()':
+src/mapper/InfoNES_Mapper_045.cpp:311:11: warning: array subscript is above array bounds [-Warray-bounds]
+  Map45_C[4] = Map45_Chr4;
+           ^
+src/mapper/InfoNES_Mapper_045.cpp:312:11: warning: array subscript is above array bounds [-Warray-bounds]
+  Map45_C[5] = Map45_Chr5;
+           ^
+src/mapper/InfoNES_Mapper_045.cpp:313:11: warning: array subscript is above array bounds [-Warray-bounds]
+  Map45_C[6] = Map45_Chr6;
+           ^
+src/mapper/InfoNES_Mapper_045.cpp:314:11: warning: array subscript is above array bounds [-Warray-bounds]
+  Map45_C[7] = Map45_Chr7;
+           ^
+src/mapper/InfoNES_Mapper_045.cpp: In function 'void Map45_Write(WORD, BYTE)':
+src/mapper/InfoNES_Mapper_045.cpp:131:22: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[4]; Map45_C[4] = Map45_C[0]; Map45_C[0] = swap;
+                      ^
+src/mapper/InfoNES_Mapper_045.cpp:131:34: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[4]; Map45_C[4] = Map45_C[0]; Map45_C[0] = swap;
+                                  ^
+src/mapper/InfoNES_Mapper_045.cpp:132:22: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[5]; Map45_C[5] = Map45_C[1]; Map45_C[1] = swap;
+                      ^
+src/mapper/InfoNES_Mapper_045.cpp:132:34: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[5]; Map45_C[5] = Map45_C[1]; Map45_C[1] = swap;
+                                  ^
+src/mapper/InfoNES_Mapper_045.cpp:133:22: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[6]; Map45_C[6] = Map45_C[2]; Map45_C[2] = swap;
+                      ^
+src/mapper/InfoNES_Mapper_045.cpp:133:34: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[6]; Map45_C[6] = Map45_C[2]; Map45_C[2] = swap;
+                                  ^
+src/mapper/InfoNES_Mapper_045.cpp:134:22: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[7]; Map45_C[7] = Map45_C[3]; Map45_C[3] = swap;
+                      ^
+src/mapper/InfoNES_Mapper_045.cpp:134:34: warning: array subscript is above array bounds [-Warray-bounds]
+      swap = Map45_C[7]; Map45_C[7] = Map45_C[3]; Map45_C[3] = swap;
+                                  ^
+In file included from src/InfoNES_Mapper.cpp:16:0:
+src/K6502.h: At global scope:
+src/K6502.h:60:20: warning: 'BYTE K6502_Read(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_Read( WORD wAddr);
+                    ^
+src/K6502.h:61:20: warning: 'WORD K6502_ReadW(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadW( WORD wAddr );
+                    ^
+src/K6502.h:62:20: warning: 'WORD K6502_ReadW2(WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadW2( WORD wAddr );
+                    ^
+src/K6502.h:63:20: warning: 'BYTE K6502_ReadZp(BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadZp( BYTE byAddr );
+                    ^
+src/K6502.h:64:20: warning: 'WORD K6502_ReadZpW(BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline WORD K6502_ReadZpW( BYTE byAddr );
+                    ^
+src/K6502.h:65:20: warning: 'BYTE K6502_ReadAbsX()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsX();
+                    ^
+src/K6502.h:66:20: warning: 'BYTE K6502_ReadAbsY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsY();
+                    ^
+src/K6502.h:67:20: warning: 'BYTE K6502_ReadIY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadIY();
+                    ^
+src/K6502.h:69:20: warning: 'void K6502_Write(WORD, BYTE)' declared 'static' but never defined [-Wunused-function]
+ static inline void K6502_Write( WORD wAddr, BYTE byData );
+                    ^
+src/K6502.h:70:20: warning: 'void K6502_WriteW(WORD, WORD)' declared 'static' but never defined [-Wunused-function]
+ static inline void K6502_WriteW( WORD wAddr, WORD wData );
+                    ^
+mips-linux-gnu-g++ -O2 -fno-strict-aliasing -fno-lto -Wall -Wextra -Isrc -Isrc/hiby -std=c++11 -D_GNU_SOURCE -EL -march=mips32r2 -mtune=mips32r2 -c -o src/InfoNES_pAPU.o src/InfoNES_pAPU.cpp
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:38:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C1a, C1A);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:39:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C1b, C1B);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:40:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C1c, C1C);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:41:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C1d, C1D);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:43:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C2a, C2A);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:44:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C2b, C2B);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:45:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C2c, C2C);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:46:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C2d, C2D);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:48:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C3a, C3A);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:49:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C3b, C3B);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:50:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C3c, C3C);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:51:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C3d, C3D);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:53:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C4a, C4A);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:54:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C4b, C4B);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:55:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C4c, C4C);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:56:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C4d, C4D);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:58:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C5a, C5A);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:59:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C5b, C5B);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:60:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C5c, C5C);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:61:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(C5d, C5D);
+ ^
+src/InfoNES_pAPU.cpp:30:26: warning: unused parameter 'addr' [-Wunused-parameter]
+ void ApuWrite##name(WORD addr, BYTE value) \
+                          ^
+src/InfoNES_pAPU.cpp:63:1: note: in expansion of macro 'APU_WRITEFUNC'
+ APU_WRITEFUNC(Control, CTRL);
+ ^
+src/InfoNES_pAPU.cpp: In function 'void ApuRenderingWave1()':
+src/InfoNES_pAPU.cpp:379:27: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+     while ( ApuC1EnvPhase < 0 )
+                           ^
+src/InfoNES_pAPU.cpp:407:31: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+       while ( ApuC1SweepPhase < 0 )
+                               ^
+src/InfoNES_pAPU.cpp: In function 'void ApuRenderingWave2()':
+src/InfoNES_pAPU.cpp:531:27: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+     while ( ApuC2EnvPhase < 0 )
+                           ^
+src/InfoNES_pAPU.cpp:559:31: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+       while ( ApuC2SweepPhase < 0)
+                               ^
+src/InfoNES_pAPU.cpp: In function 'void ApuRenderingWave4()':
+src/InfoNES_pAPU.cpp:796:27: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+     while ( ApuC4EnvPhase < 0 )
+                           ^
+In file included from src/InfoNES_pAPU.cpp:12:0:
+src/K6502.h: At global scope:
+src/K6502.h:65:20: warning: 'BYTE K6502_ReadAbsX()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsX();
+                    ^
+src/K6502.h:66:20: warning: 'BYTE K6502_ReadAbsY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadAbsY();
+                    ^
+src/K6502.h:67:20: warning: 'BYTE K6502_ReadIY()' declared 'static' but never defined [-Wunused-function]
+ static inline BYTE K6502_ReadIY();
+                    ^
+mips-linux-gnu-g++ -O2 -fno-strict-aliasing -fno-lto -Wall -Wextra -Isrc -Isrc/hiby -std=c++11 -D_GNU_SOURCE -EL -march=mips32r2 -mtune=mips32r2 -c -o src/K6502.o src/K6502.cpp
+src/K6502.cpp: In function 'WORD Read_AA_ABS()':
+src/K6502.cpp:36:56: error: 'PC' was not declared in this scope
+ static inline WORD Read_AA_ABS() { WORD l = K6502_Read(PC); PC++; WORD h = K6502_Read(PC); PC++; return (WORD)(l | (h << 8)); }
+                                                        ^
+src/K6502.cpp: In function 'WORD Read_AA_ABS2()':
+src/K6502.cpp:39:57: error: 'PC' was not declared in this scope
+ static inline WORD Read_AA_ABS2() { WORD l = K6502_Read(PC); PC++; WORD h = K6502_Read(PC); return (WORD)(l | (h << 8)); }
+                                                         ^
+make: *** [Makefile:33: src/K6502.o] Error 1
+=== Binary info ===
+readelf: Error: 'infones': No such file
