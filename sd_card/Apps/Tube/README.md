@@ -6,7 +6,7 @@ The project consists of two parts:
 - **`tube`** — a C binary that runs on the Hiby R1 itself (MIPS architecture)
 - **`proxy/`** — a Python HTTP server that runs on a separate machine (macOS or Linux/Debian) and does all the heavy YouTube work
 
-> For proxy setup details, see [proxy/README.md](proxy/README.md).
+> For proxy setup details, see [proxy/README.md](sd_card/Apps/Tube/proxy/README.md).
 
 ---
 
