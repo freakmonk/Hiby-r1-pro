@@ -11,7 +11,7 @@ firmware. Example test applications and their source code are kept in `src/`.
 ## Included applications
 
 - **Audiobook** - an audiobook player forked and reworked from
-    [Hiby-R1-Audiobook-Mod](https://github.com/yetisoldier/Hiby-R1-Audiobook-Mod).
+    [Hiby-R1-Audiobook-Mod](https://github.com/yetisoldier/Hiby-R1-Audiobook-Mod) by yetisoldier.
 - **Calculator** - a small calculator application.
 - **DOOM** - a port of the game with sound support and a launcher that lets
     you choose the WAD to play.
