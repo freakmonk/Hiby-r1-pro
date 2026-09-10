@@ -75,7 +75,7 @@ Volume level is saved to `/tmp/tube_vol` on the device and persists between vide
 
 ## Deploying to the Device
 
-Copy both files to the Hiby R1:
+Copy files to the Hiby R1:
 
 - tube
 - run.sh
@@ -88,7 +88,9 @@ Edit `tube.cfg` to contain the IP address of your proxy server (one line, no tra
 192.168.1.100
 ```
 
-Then run on the device.
+Run Proxy server, and give him 3 minutes for update feeds and sort 50 most fresh items.
+
+Then run Tube app on the device.
 
 ---
 
