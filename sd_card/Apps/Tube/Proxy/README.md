@@ -42,4 +42,4 @@ After startup, the server will listen on port `8080` (by default).
 When the proxy starts, it immediately begins polling the channels listed in `proxy.conf` in the background. The list of new videos (up to 50) is updated every 30 minutes.
 
 ## IP Configuration
-Make sure that your Mac's IP address (where the proxy is running) matches the address specified in the `tube.cfg` file on the Hiby R1 player.
+Make sure that your server IP address (where the proxy is running) matches the address specified in the `tube.cfg` file on the Hiby R1 player.
