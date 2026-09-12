@@ -25,7 +25,7 @@ if ! grep -q " $SD_MOUNT " /proc/mounts 2>/dev/null; then
 fi
 
 # Try to force executable bit just in case
-chmod +x "$SD_MOUNT/.rockbox/rockbox" 2>/dev/null
+chmod +x "$SD_MOUNT/.rockbox/rockbox.r1" 2>/dev/null
 cd "$SD_MOUNT"
 
 # Run  – all stdout/stderr (including [doom-input] lines) goes to SD card log
