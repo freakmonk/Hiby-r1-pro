@@ -28,7 +28,7 @@ fi
 chmod +x "$SD_MOUNT/.rockbox/rockbox.r1" 2>/dev/null
 cd "$SD_MOUNT"
 
-# Run  – all stdout/stderr (including [doom-input] lines) goes to SD card log
+# Run
 "$SD_MOUNT/.rockbox/rockbox.r1"
 
 log "rockbox exited."
